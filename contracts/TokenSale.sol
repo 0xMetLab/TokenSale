@@ -267,10 +267,9 @@ contract TokenSale is Ownable {
     /**
      * @notice Withdraws weth9 collected during the sale.
      * @dev Uses safeTransfer to send the weth9 balance from the contract to the specified address.
-     * This function can only be called by the owner after the sale is over, as indicated by the checkSaleIsOver modifier.
      * @param to The recipient address for withdrawing weth9.
      */
-    function withdrawWrappedNativeToken(address to) external checkSaleIsOver onlyOwner {
+    function withdrawWrappedNativeToken(address to) external onlyOwner {
         uint256 balance = weth9.balanceOf(address(this));
         require(balance > 0, "no tokens to withdraw");
         if (balance > 0) {

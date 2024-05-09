@@ -554,7 +554,7 @@ function withdrawWrappedNativeToken(address to) external nonpayable
 
 Withdraws weth9 collected during the sale.
 
-*Uses safeTransfer to send the weth9 balance from the contract to the specified address. This function can only be called by the owner after the sale is over, as indicated by the checkSaleIsOver modifier.*
+*Uses safeTransfer to send the weth9 balance from the contract to the specified address.*
 
 #### Parameters
 

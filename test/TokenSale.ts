@@ -194,10 +194,10 @@ describe("TokenSale", function () {
       "Incorrect ETH refund after purchasing tokens");
   });
 
-  it("should fail to withdraw WMETIS if the sale is not over", async function () {
+  it("should allow the owner to withdraw WMETIS", async function () {
     await expect(
       tokenSale.connect(owner).withdrawWrappedNativeToken(owner.address)
-    ).to.be.revertedWith("sale is NOT over");
+    ).to.be.not.reverted;
   });
 
   it('should grow the saleToken price correctly: $0.20 => $1.00', async function () {
