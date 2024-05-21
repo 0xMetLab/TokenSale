@@ -258,10 +258,8 @@ contract TokenSale is Ownable {
     function withdrawUnsold() external onlyOwner {
         uint256 unsold = availableWithdrawVolume();
         require(unsold > 0, "no unsold tokens");
-        if (unsold > 0) {
-            saleToken.safeTransfer(owner(), unsold);
-            emit WithdrawUnsold(unsold);
-        }
+        saleToken.safeTransfer(owner(), unsold);
+        emit WithdrawUnsold(unsold);
     }
 
     /**
