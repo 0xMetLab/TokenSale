@@ -199,8 +199,9 @@ contract TokenSale is Ownable {
         uint256 saleTokenRate = currentSaleTokenRate();
         uint256 intermediate = (purchaseAmount * 1e18);
         paymentAmount = intermediate / saleTokenRate;
+        require(paymentAmount > 0, "amount is too small");
         //round up
-        if (paymentAmount > 0 && intermediate % saleTokenRate > 0) {
+        if (intermediate % saleTokenRate > 0) {
             paymentAmount += 1;
         }
     }
