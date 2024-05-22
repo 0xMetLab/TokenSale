@@ -670,6 +670,22 @@ event StartSale(uint256 saleTokenRate)
 |---|---|---|
 | saleTokenRate  | uint256 | undefined |
 
+### UpNativeTokenOracle
+
+```solidity
+event UpNativeTokenOracle(address oracle)
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| oracle  | address | undefined |
+
 ### UpVestingPeriod
 
 ```solidity

@@ -66,6 +66,7 @@ contract TokenSale is Ownable {
     event PurchaseExactPurchased(address purchaser, uint256 paymentAmount, uint256 purchaseAmount);
     event Exit(address user, uint256 amount);
     event UpVestingPeriod(uint256 period);
+    event UpNativeTokenOracle(address oracle);
 
     /**
      * @notice Creates a new `TokenSale` contract instance.
@@ -217,6 +218,7 @@ contract TokenSale is Ownable {
     function setNativeTokenOracle(address oracle) external onlyOwner {
         require(IOracle(oracle).peekSpot("") != 0, "unsupported oracle");
         nativeTokenOracle = IOracle(oracle);
+        emit UpNativeTokenOracle(oracle);
     }
 
     /**
